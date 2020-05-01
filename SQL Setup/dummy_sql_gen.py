@@ -42,6 +42,7 @@ def genPersonSQL(user_id):
     fptr.close()
     fptr2.close()
 
+    
 
 if __name__ == "__main__":
     fptr = open("dummy_sql.sql", "w")
