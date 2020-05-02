@@ -16,7 +16,6 @@ create table users
     primary key (user_id)
 );
 
-
 create table logins
 (
     user_id int not null unique,
