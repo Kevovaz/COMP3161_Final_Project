@@ -183,12 +183,12 @@ if __name__ == "__main__":
 	fptr2 = open("raw_pass_1.txt", "w")
 	
 	fptr.write("insert into users (user_id, first_name, last_name, tele_num, home_address, email, dob, clearance) values ('0', 'Admin', 'Dude', '(876)000-0000', '-----------', 'admin@admin.com', '0000/00/00', 1);\n")
-	fptr.write("insert into logins (user_id, email, pass_digest, salt) values ('0', 'adnim@adnim.com', '6fe5a7a2830877415d67df5f13454ecd3ce16c6e01e66f011e3fa0a50242c754', '1234');\n")
+	fptr.write("insert into logins (user_id, email, pass_digest, salt) values ('0', 'admin@admin.com', '6fe5a7a2830877415d67df5f13454ecd3ce16c6e01e66f011e3fa0a50242c754', '1234');\n")
 	fptr.close()
 	fptr2.close()
 	for x in range(int(sys.argv[1])):
 		genPersonSQL(x + 1)
-		for y in range(x+2, x+26):
+		for y in range(x+2, x+5):
 			generateFriend(x+1, (y%int(sys.argv[1])))
 		print(x+1)
 	endtime = datetime.now()

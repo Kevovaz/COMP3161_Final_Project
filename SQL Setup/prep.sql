@@ -21,6 +21,7 @@ create table users
     email varchar (45) not null unique,
     dob Date not null,
     profile_pic_address varchar(50),
+	clearance int not null,
     /*foreign key (user_id, address_id) references addresses,*/
     primary key (user_id)
 );
@@ -94,5 +95,6 @@ create table members
 (
     group_id int not null,
     member_id int not null,
+	role varchar (15) not null,
     primary key (group_id, member_id)
 );
