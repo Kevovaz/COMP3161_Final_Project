@@ -157,7 +157,7 @@ def genPersonSQL(user_id):
     pass_digest = hashlib.sha256(password.encode()).hexdigest()
     salt = random.randint(1, 10000)
     dob = str(random.randint(1960, 2002)) + "/" + str(random.randint(1, 12)) + "/" + str(random.randint(1, 28)) 
-    fptr.write("insert into users (user_id, first_name, last_name, tele_num, home_address, email, dob) values ('" + str(user_id) + "', '" + fName + "', '" + lName + "', '" + tele + "', '" + address + "', '" + email + "', '" + dob + "');\n")
+    fptr.write("insert into users (user_id, first_name, last_name, tele_num, home_address, email, dob, clearance) values ('" + str(user_id) + "', '" + fName + "', '" + lName + "', '" + tele + "', '" + address + "', '" + email + "', '" + dob + "', 2);\n")
     fptr.write("insert into logins (user_id, email, pass_digest, salt) values ('" + str(user_id) + "', '" + email + "', '" + str(pass_digest) + "', '" + str(salt) + "');\n")
     fptr2.write("\n\nUserID: +" + str(user_id) + "\nEmail_Address: " + email + "\nPass: " + password + "\nSalt: " + str(salt))
     fptr.close()
@@ -181,6 +181,9 @@ if __name__ == "__main__":
 		fptr.write(line)
 	fptr3.close()
 	fptr2 = open("raw_pass_1.txt", "w")
+	
+	fptr.write("insert into users (user_id, first_name, last_name, tele_num, home_address, email, dob, clearance) values ('0', 'Admin', 'Dude', '(876)000-0000', '-----------', 'admin@admin.com', '0000/00/00', 1);\n")
+	fptr.write("insert into logins (user_id, email, pass_digest, salt) values ('0', 'adnim@adnim.com', '6fe5a7a2830877415d67df5f13454ecd3ce16c6e01e66f011e3fa0a50242c754', '1234');\n")
 	fptr.close()
 	fptr2.close()
 	for x in range(int(sys.argv[1])):
